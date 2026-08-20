@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'accounts',
     'attendance',
     'students',
+    'log_account',
 ]
 
 MIDDLEWARE = [
@@ -52,6 +53,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'log_account.middleware.AuditLogMiddleware',
 ]
 
 ROOT_URLCONF = 'sama.urls'
