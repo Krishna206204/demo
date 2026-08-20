@@ -34,5 +34,5 @@ urlpatterns = [
     path("attendance/",include('attendance.urls')),
     path("students/",include('students.urls')),
     path("academics/",include('academics.urls')),
-    path("log_account/",include('log_account.urls')),
+    # path("log_account/",include('log_account.urls')),
 ]
