@@ -1,4 +1,247 @@
+{% load static %}
 <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.0/css/all.min.css"
+        integrity="sha512-ApSLB1Pd3/bZN8fWB/RG9YhN/7bd9Hkf3AGaE2mPfebjrxagjuBtx2GcgdqIlJkUzwylBo61r9Xa9NmgBI0swA=="
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer">
+
+    <title>SMS | Login</title>
+</head>
+
+<body class="min-h-screen bg-slate-100">
+
+    <div class="flex min-h-screen items-center justify-center px-4 py-10">
+
+        <!-- Login Card -->
+        <div
+            class="relative w-full max-w-md rounded-[2rem] border border-slate-200 bg-white p-8 shadow-[0_30px_60px_-35px_rgba(15,23,42,0.4)]">
+
+            <!-- Header -->
+            <div class="mb-8 text-center pt-2">
+
+                <div
+                    class="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-blue-100 text-blue-600">
+
+                    <i class="fa-solid fa-graduation-cap text-2xl"></i>
+
+                </div>
+
+                <h1 class="text-3xl font-semibold text-slate-900">
+                    Welcome Back
+                </h1>
+
+                <p class="mt-2 text-sm text-slate-500">
+                    Select your login role to continue.
+                </p>
+
+            </div>
+
+
+            <!-- Login Form -->
+            <form method="POST" class="space-y-5">
+
+                {% csrf_token %}
+
+
+                <!-- Role Selection -->
+                <label class="block">
+
+                    <span class="mb-2 block text-sm font-medium text-slate-700">
+                        Login As
+                    </span>
+
+                    <div class="relative">
+
+                        <select
+                            id="roleSelect"
+                            name="role"
+                            required
+                            onchange="redirectByRole()"
+                            class="w-full appearance-none rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 pr-10 text-slate-900 outline-none transition focus:border-blue-500 focus:ring-2 focus:ring-blue-100">
+
+                            <option value="" selected disabled>
+                                Select Login Role
+                            </option>
+
+                            <option value="student">
+                                Student
+                            </option>
+
+                            <option value="teacher">
+                                Teacher
+                            </option>
+
+                        </select>
+
+                        <i
+                            class="fa-solid fa-chevron-down pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 text-sm text-slate-400">
+                        </i>
+
+                    </div>
+
+                </label>
+
+                <label class="block">
+
+                    <span class="mb-2 block text-sm font-medium text-slate-700">
+                        Username
+                    </span>
+
+                    <div class="relative">
+
+                        <i
+                            class="fa-solid fa-user absolute left-4 top-1/2 -translate-y-1/2 text-slate-400">
+                        </i>
+
+                        <input
+                            type="text"
+                            name="username"
+                            placeholder="Enter your username"
+                            required
+                            class="w-full rounded-2xl border border-slate-200 bg-slate-50 py-3 pl-11 pr-4 text-slate-900 outline-none transition focus:border-blue-500 focus:ring-2 focus:ring-blue-100">
+
+                    </div>
+
+                </label>
+
+                <!-- Password -->
+                <label class="block">
+
+                    <span class="mb-2 block text-sm font-medium text-slate-700">
+                        Password
+                    </span>
+
+                    <div class="relative">
+
+                        <i
+                            class="fa-solid fa-lock absolute left-4 top-1/2 -translate-y-1/2 text-slate-400">
+                        </i>
+
+                        <input
+                            type="password"
+                            id="password"
+                            name="password"
+                            placeholder="Enter your password"
+                            required
+                            class="w-full rounded-2xl border border-slate-200 bg-slate-50 py-3 pl-11 pr-12 text-slate-900 outline-none transition focus:border-blue-500 focus:ring-2 focus:ring-blue-100">
+
+                        <!-- Show / Hide Password -->
+                        <button
+                            type="button"
+                            onclick="togglePassword()"
+                            class="absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 transition hover:text-blue-600">
+
+                            <i id="eyeIcon" class="fa-solid fa-eye"></i>
+
+                        </button>
+
+                    </div>
+
+                </label>
+
+                <!-- Login Button -->
+                <button
+                    type="submit"
+                    class="w-full rounded-2xl bg-blue-600 px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-blue-500/20 transition hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
+
+                    <i class="fa-solid fa-right-to-bracket mr-2"></i>
+                    Login
+
+                </button>
+
+                 <a href="{% url 'home' %}" 
+      class="absolute -button- left-1 -translate-x-1 inline-flex items-center gap-1.5 rounded-xl bg-blue-600 px-3 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-blue-700"> 
+      <p>Home</p> 
+      <i class="fa-solid fa-house"></i> 
+  </a>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+    <!-- JavaScript -->
+    <script>
+
+        // Redirect according to selected role
+        function redirectByRole() {
+
+            const role = document.getElementById("roleSelect").value;
+
+            if (role === "student") {
+
+                window.location.href = "{% url 'student-lookup' %}";
+            }
+            {% comment %}  else if (role === "teacher") {
+
+                window.location.href = "{% url 'login' %}";
+
+            } {% endcomment %}
+        }
+
+        // Show / Hide Password
+        function togglePassword() {
+
+            const password = document.getElementById("password");
+            const eyeIcon = document.getElementById("eyeIcon");
+
+            if (password.type === "password") {
+
+                password.type = "text";
+
+                eyeIcon.classList.remove("fa-eye");
+                eyeIcon.classList.add("fa-eye-slash");
+
+            } else {
+
+                password.type = "password";
+
+                eyeIcon.classList.remove("fa-eye-slash");
+                eyeIcon.classList.add("fa-eye");
+
+            }
+        }
+
+    </script>
+
+
+    <!-- Django Messages -->
+    {% if messages %}
+        {% for message in messages %}
+            <script>
+                Swal.fire({
+                    toast: true,
+                    position: "top-end",
+                    title: "{{ message.tags|title }}",
+                    text: "{{ message }}",
+                    icon: "{{ message.tags }}",
+                    timer: 2500,
+                    timerProgressBar: true,
+                    showConfirmButton: false
+                });
+            </script>
+        {% endfor %}
+    {% endif %}
+
+</body>
+
+</html>
+
+
+ {% comment %} <!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -19,7 +262,7 @@
 
     <!-- Home button -->
     <a href="{% url 'home' %}" 
-      class="absolute -top-10 left-1/2 -translate-x-1/2 inline-flex items-center gap-1.5 rounded-xl bg-blue-600 px-3 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-blue-700"> 
+      class="absolute -top-8 left-1/2 -translate-x-1/2 inline-flex items-center gap-1.5 rounded-xl bg-blue-600 px-3 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-blue-700"> 
       <p>Home</p> 
       <i class="fa-solid fa-house"></i> 
   </a>
@@ -94,4 +337,4 @@
     {% endfor %} {% endif %}
 
 </body>
-</html>
+</html>  {% endcomment %}
