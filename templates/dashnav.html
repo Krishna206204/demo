@@ -1,132 +1,144 @@
 <nav class="bg-slate-800 text-slate-100 shadow-md">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16">
+      <!-- School Name -->
+      <div class="flex items-center">
+        <a
+          href="{% url 'home' %}"
+          class="text-xl font-semibold tracking-wide text-white"
+        >
+          Jhime Malika Secondary School
+        </a>
+      </div>
 
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- Desktop Navigation -->
+      <div class="hidden md:flex items-center space-x-6">
+        <a
+          href="{% url 'home' %}"
+          class="text-slate-200 hover:text-white transition"
+        >
+          Home
+        </a>
 
-        <div class="flex items-center justify-between h-16">
+        <a
+          href="{% url 'about' %}"
+          class="text-slate-200 hover:text-white transition"
+        >
+          About
+        </a>
 
-            <!-- School Name -->
-            <div class="flex items-center">
-                <a href="{% url 'home' %}"
-                   class="text-xl font-semibold tracking-wide text-white">
-                    Jhime Malika Secondary School
-                </a>
-            </div>
+        <a
+          href="{% url 'contact' %}"
+          class="text-slate-200 hover:text-white transition"
+        >
+          Contact
+        </a>
 
+        <a
+          href="{% url 'login' %}"
+          class="text-slate-200 hover:text-white transition"
+        >
+          Login
+        </a>
 
-            <!-- Desktop Navigation -->
-            <div class="hidden md:flex items-center space-x-6">
+        <a
+          href="{% url 'admin:index' %}"
+          class="text-slate-200 hover:text-white transition"
+        >
+          Admin_Login
+        </a>
+      </div>
 
-                <a href="{% url 'home' %}"
-                   class="text-slate-200 hover:text-white transition">
-                    Home
-                </a>
-
-                <a href="{% url 'about' %}"
-                   class="text-slate-200 hover:text-white transition">
-                    About
-                </a>
-
-                <a href="{% url 'contact' %}"
-                   class="text-slate-200 hover:text-white transition">
-                    Contact
-                </a>
-
-                <a href="{% url 'login' %}"
-                   class="text-slate-200 hover:text-white transition">
-                    Login
-                </a>
-
-            </div>
-
-
-            <!-- Mobile Menu Button -->
-            <button
-                id="navbar-menu-btn"
-                type="button"
-                class="md:hidden rounded-lg px-3 py-2 text-white hover:bg-white/10">
-
-                <i class="fa-solid fa-bars text-xl"></i>
-
-            </button>
-
-        </div>
-
-
-        <!-- Mobile Navigation -->
-        <div
-            id="mobile-navbar"
-            class="hidden pb-4 md:hidden">
-
-            <div class="flex flex-col space-y-2">
-
-                <a href="{% url 'home' %}"
-                   class="rounded-lg px-4 py-2 text-slate-200 hover:bg-white/10 hover:text-white">
-                    Home
-                </a>
-
-                <a href="{% url 'about' %}"
-                   class="rounded-lg px-4 py-2 text-slate-200 hover:bg-white/10 hover:text-white">
-                    About
-                </a>
-
-                <a href="{% url 'contact' %}"
-                   class="rounded-lg px-4 py-2 text-slate-200 hover:bg-white/10 hover:text-white">
-                    Contact
-                </a>
-
-                <a href="{% url 'login' %}"
-                   class="rounded-lg px-4 py-2 text-slate-200 hover:bg-white/10 hover:text-white">
-                    Login
-                </a>
-
-            </div>
-
-        </div>
-
+      <!-- Mobile Menu Button -->
+      <button
+        id="navbar-menu-btn"
+        type="button"
+        class="md:hidden rounded-lg px-3 py-2 text-white hover:bg-white/10"
+      >
+        <i class="fa-solid fa-bars text-xl"></i>
+      </button>
     </div>
 
+    <!-- Mobile Navigation -->
+    <div id="mobile-navbar" class="hidden pb-4 md:hidden">
+      <div class="flex flex-col space-y-2">
+        <a
+          href="{% url 'home' %}"
+          class="rounded-lg px-4 py-2 text-slate-200 hover:bg-white/10 hover:text-white"
+        >
+          Home
+        </a>
+
+        <a
+          href="{% url 'about' %}"
+          class="rounded-lg px-4 py-2 text-slate-200 hover:bg-white/10 hover:text-white"
+        >
+          About
+        </a>
+
+        <a
+          href="{% url 'contact' %}"
+          class="rounded-lg px-4 py-2 text-slate-200 hover:bg-white/10 hover:text-white"
+        >
+          Contact
+        </a>
+
+        <a
+          href="{% url 'login' %}"
+          class="rounded-lg px-4 py-2 text-slate-200 hover:bg-white/10 hover:text-white"
+        >
+          Login
+        </a>
+      </div>
+    </div>
+  </div>
 </nav>
 
-
 <script>
+  const navbarMenuBtn = document.getElementById("navbar-menu-btn");
+  const mobileNavbar = document.getElementById("mobile-navbar");
 
-    const navbarMenuBtn = document.getElementById("navbar-menu-btn");
-    const mobileNavbar = document.getElementById("mobile-navbar");
-
-    navbarMenuBtn.addEventListener("click", function () {
-
-        mobileNavbar.classList.toggle("hidden");
-
-    });
-
+  navbarMenuBtn.addEventListener("click", function () {
+    mobileNavbar.classList.toggle("hidden");
+  });
 </script>
 
+{% comment %}
+<nav class="bg-slate-800 text-slate-100 shadow-md">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16">
+      <div class="flex items-center">
+        <a
+          href="{% url 'home' %}"
+          class="text-xl font-semibold tracking-wide text-white"
+        >
+          Jhime Malika Secondary School
+        </a>
+      </div>
 
-
-
-
-
-
-
-
-{% comment %} <nav class="bg-slate-800 text-slate-100 shadow-md">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex items-center justify-between h-16">
-            <div class="flex items-center">
-                <a href="{% url 'home' %}" class="text-xl font-semibold tracking-wide text-white">
-                   Jhime Malika Secondary School
-                </a>
-            </div>
-
-            
-            <div class="flex items-center space-x-6">
-                <a href="{% url 'home' %}" class="text-slate-200 hover:text-white transition">Home</a>
-                <a href="{% url 'about' %}" class="text-slate-200 hover:text-white transition">About</a>
-                <a href="{% url 'contact' %}" class="text-slate-200 hover:text-white transition">Contact</a>
-                <a href="{% url 'login' %}" class="text-slate-200 hover:text-white transition">Login</a>
-                
-
-            </div>
-        </div>
+      <div class="flex items-center space-x-6">
+        <a
+          href="{% url 'home' %}"
+          class="text-slate-200 hover:text-white transition"
+          >Home</a
+        >
+        <a
+          href="{% url 'about' %}"
+          class="text-slate-200 hover:text-white transition"
+          >About</a
+        >
+        <a
+          href="{% url 'contact' %}"
+          class="text-slate-200 hover:text-white transition"
+          >Contact</a
+        >
+        <a
+          href="{% url 'login' %}"
+          class="text-slate-200 hover:text-white transition"
+          >Login</a
+        >
+      </div>
     </div>
-</nav> {% endcomment %}
+  </div>
+</nav>
+{% endcomment %}
