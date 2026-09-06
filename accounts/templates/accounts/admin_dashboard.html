@@ -1,0 +1,358 @@
+{% extends 'adminbase.html' %}
+
+{% block title %}
+    SMS | Admin Dashboard
+{% endblock title %}
+
+
+{% block page_label %}
+    Administration
+{% endblock page_label %}
+
+
+{% block page_title %}
+    Admin Dashboard
+{% endblock page_title %}
+
+
+{% block content %}
+
+<div class="space-y-8">
+
+
+    <!-- Welcome Section -->
+    <div>
+        <h2 class="text-2xl font-bold text-slate-900">
+            Welcome, {{ request.user.username }}
+        </h2>
+
+        <p class="mt-1 text-sm text-slate-500">
+            Manage your school management system from here.
+        </p>
+    </div>
+
+
+    <!-- Statistics -->
+    <div class="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
+
+
+        <!-- Students -->
+        <div
+            class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-md">
+
+            <div class="flex items-center justify-between">
+
+                <div>
+                    <p class="text-sm font-medium text-slate-500">
+                        Students
+                    </p>
+
+                    <h2 class="mt-2 text-3xl font-bold text-slate-900">
+                        {{ total_students }}
+                    </h2>
+                </div>
+
+                <div
+                    class="flex h-12 w-12 items-center justify-center rounded-xl bg-blue-100 text-blue-600">
+
+                    <i class="fa-solid fa-user-graduate text-lg"></i>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- Teachers -->
+        <div
+            class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-md">
+
+            <div class="flex items-center justify-between">
+
+                <div>
+                    <p class="text-sm font-medium text-slate-500">
+                        Teachers
+                    </p>
+
+                    <h2 class="mt-2 text-3xl font-bold text-slate-900">
+                        {{ total_teachers }}
+                    </h2>
+                </div>
+
+                <div
+                    class="flex h-12 w-12 items-center justify-center rounded-xl bg-green-100 text-green-600">
+
+                    <i class="fa-solid fa-chalkboard-user text-lg"></i>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- Classrooms -->
+        <div
+            class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-md">
+
+            <div class="flex items-center justify-between">
+
+                <div>
+                    <p class="text-sm font-medium text-slate-500">
+                        Classrooms
+                    </p>
+
+                    <h2 class="mt-2 text-3xl font-bold text-slate-900">
+                        {{ total_classrooms }}
+                    </h2>
+                </div>
+
+                <div
+                    class="flex h-12 w-12 items-center justify-center rounded-xl bg-purple-100 text-purple-600">
+
+                    <i class="fa-solid fa-school text-lg"></i>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- Subjects -->
+        <div
+            class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-md">
+
+            <div class="flex items-center justify-between">
+
+                <div>
+                    <p class="text-sm font-medium text-slate-500">
+                        Subjects
+                    </p>
+
+                    <h2 class="mt-2 text-3xl font-bold text-slate-900">
+                        {{ total_subjects }}
+                    </h2>
+                </div>
+
+                <div
+                    class="flex h-12 w-12 items-center justify-center rounded-xl bg-orange-100 text-orange-600">
+
+                    <i class="fa-solid fa-book text-lg"></i>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- System Management -->
+    <div>
+
+        <div class="mb-5">
+
+            <h2 class="text-xl font-bold text-slate-900">
+                System Management
+            </h2>
+
+            <p class="mt-1 text-sm text-slate-500">
+                Access and manage different areas of the system.
+            </p>
+
+        </div>
+
+
+        <div class="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
+
+
+            <!-- Admin Dashboard -->
+            {% comment %} <a
+                href="{% url 'dashboard' %}"
+                class="group rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition duration-200 hover:-translate-y-1 hover:shadow-lg">
+
+                <div
+                    class="flex h-12 w-12 items-center justify-center rounded-xl bg-blue-100 text-blue-600 transition group-hover:bg-blue-600 group-hover:text-white">
+
+                    <i class="fa-solid fa-chalkboard-user"></i>
+
+                </div>
+
+                <h3 class="mt-4 text-lg font-bold text-slate-900">
+                    Admin Dashboard
+                </h3>
+
+                <p class="mt-2 text-sm leading-6 text-slate-500">
+                    Access Admin functionality and manage classroom activities.
+                </p>
+
+            </a> {% endcomment %}
+
+
+            <!-- Student Management -->
+            <a
+                href="{% url 'admin-students'%}"
+                class="group rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition duration-200 hover:-translate-y-1 hover:shadow-lg">
+
+                <div
+                    class="flex h-12 w-12 items-center justify-center rounded-xl bg-indigo-100 text-indigo-600 transition group-hover:bg-indigo-600 group-hover:text-white">
+
+                    <i class="fa-solid fa-user-graduate"></i>
+
+                </div>
+
+                <h3 class="mt-4 text-lg font-bold text-slate-900">
+                    Student Management
+                </h3>
+
+                <p class="mt-2 text-sm leading-6 text-slate-500">
+                    Manage students, classrooms, and student information.
+                </p>
+
+            </a>
+
+
+            <!-- Teacher Management -->
+            <a
+                href="#"
+                class="group rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition duration-200 hover:-translate-y-1 hover:shadow-lg">
+
+                <div
+                    class="flex h-12 w-12 items-center justify-center rounded-xl bg-green-100 text-green-600 transition group-hover:bg-green-600 group-hover:text-white">
+
+                    <i class="fa-solid fa-chalkboard-user"></i>
+
+                </div>
+
+                <h3 class="mt-4 text-lg font-bold text-slate-900">
+                    Teacher Management
+                </h3>
+
+                <p class="mt-2 text-sm leading-6 text-slate-500">
+                    Manage teacher accounts and assignments.
+                </p>
+
+            </a>
+
+
+            <!-- Attendance -->
+            <a
+                href="{% url 'attendance'%}"
+                class="group rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition duration-200 hover:-translate-y-1 hover:shadow-lg">
+
+                <div
+                    class="flex h-12 w-12 items-center justify-center rounded-xl bg-yellow-100 text-yellow-600 transition group-hover:bg-yellow-500 group-hover:text-white">
+
+                    <i class="fa-solid fa-calendar-check"></i>
+
+                </div>
+
+                <h3 class="mt-4 text-lg font-bold text-slate-900">
+                    Attendance
+                </h3>
+
+                <p class="mt-2 text-sm leading-6 text-slate-500">
+                    View and manage attendance records across the system.
+                </p>
+
+            </a>
+
+
+            <!-- Academic Management -->
+            {% comment %} <a
+                href="#"
+                class="group rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition duration-200 hover:-translate-y-1 hover:shadow-lg">
+
+                <div
+                    class="flex h-12 w-12 items-center justify-center rounded-xl bg-orange-100 text-orange-600 transition group-hover:bg-orange-600 group-hover:text-white">
+
+                    <i class="fa-solid fa-book-open"></i>
+
+                </div>
+
+                <h3 class="mt-4 text-lg font-bold text-slate-900">
+                    Academic Management
+                </h3>
+
+                <p class="mt-2 text-sm leading-6 text-slate-500">
+                    Manage subjects, assignments, marks, and results.
+                </p>
+
+            </a>
+ {% endcomment %}
+
+            <!-- Django Admin -->
+            <a
+                href="{% url 'admin:index' %}"
+                class="group rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition duration-200 hover:-translate-y-1 hover:shadow-lg">
+
+                <div
+                    class="flex h-12 w-12 items-center justify-center rounded-xl bg-slate-100 text-slate-700 transition group-hover:bg-slate-800 group-hover:text-white">
+
+                    <i class="fa-solid fa-gears"></i>
+
+                </div>
+
+                <h3 class="mt-4 text-lg font-bold text-slate-900">
+                    Django Administration
+                </h3>
+
+                <p class="mt-2 text-sm leading-6 text-slate-500">
+                    Manage users, permissions, and registered Django models.
+                </p>
+
+            </a>
+
+
+        </div>
+
+    </div>
+
+
+    <!-- Quick Actions -->
+    {% comment %} <div class="rounded-2xl border border-slate-200 bg-slate-50 p-6">
+
+        <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+
+            <div>
+                <h3 class="text-lg font-bold text-slate-900">
+                    Quick Actions
+                </h3>
+
+                <p class="mt-1 text-sm text-slate-500">
+                    Quickly return to important areas of the system.
+                </p>
+            </div> {% endcomment %}
+{% comment %} 
+            <div class="flex flex-wrap gap-3">
+
+                <a
+                    href="{% url 'dashboard' %}"
+                    class="inline-flex items-center rounded-xl bg-blue-600 px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-blue-700">
+
+                    <i class="fa-solid fa-chalkboard-user mr-2"></i>
+                    Teacher Portal
+
+                </a>
+
+                <a
+                    href="{% url 'home' %}"
+                    class="inline-flex items-center rounded-xl border border-slate-300 bg-white px-4 py-2.5 text-sm font-semibold text-slate-700 transition hover:bg-slate-100">
+
+                    <i class="fa-solid fa-house mr-2"></i>
+                    Home
+
+                </a> {% endcomment %}
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock content %}

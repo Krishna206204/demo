@@ -1,0 +1,129 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<title>{% block title %}School Portal{% endblock title %}</title>
+
+<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer" />
+
+</head>
+
+
+<body class="bg-slate-50 text-slate-800">
+
+<div class="min-h-screen bg-slate-50">
+
+
+  <!-- Sidebar -->
+  {% include 'adminsidebar.html' %}
+
+
+  <!-- Main area -->
+  <div class="min-h-screen lg:ml-72">
+
+
+    <!-- Header -->
+    <header class="border-b border-slate-200 bg-white/90 px-4 py-4 sm:px-6 lg:px-8">
+
+      <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+
+
+        <!-- Page title -->
+        <div>
+
+          <p class="text-sm font-semibold uppercase tracking-[0.25em] text-slate-500">
+            {% block page_label %}
+            Admin Portal
+            {% endblock %}
+          </p>
+
+          <h1 class="mt-1 text-xl font-semibold text-slate-900">
+            {% block page_title %}
+            School Management Dashboard
+            {% endblock %}
+          </h1>
+
+        </div>
+
+
+        <!-- User information -->
+        <div class="flex items-center gap-3 rounded-full border border-slate-200 bg-slate-50 px-4 py-2">
+
+          <div class="flex h-10 w-10 items-center justify-center rounded-full bg-slate-900 text-sm font-semibold text-white">
+            A
+          </div>
+
+          <div>
+
+            <p class="text-sm font-semibold text-slate-800">
+              {{ request.user.username }}
+            </p>
+
+            <p class="text-xs text-slate-500">
+              {{ request.user.role }}
+            </p>
+
+          </div>
+
+          
+        </div>
+
+      </div>
+
+    </header>
+
+
+    <!-- Main Content -->
+    <main class="p-4 sm:p-6 lg:p-8">
+
+      <div class="rounded-3xl border border-slate-200 bg-white p-4 shadow-sm sm:p-6 lg:p-8">
+
+        {% block content %}
+        {% endblock content %}
+
+      </div>
+
+    </main>
+
+
+  </div>
+
+</div>
+
+
+<!-- Django Messages -->
+{% if messages %}
+
+  {% for message in messages %}
+
+    <script>
+
+      Swal.fire({
+        toast: true,
+        position: 'top-end',
+        title: '{{ message.tag | title }}',
+        text: '{{ message }}',
+        icon: '{{ message.tag }}',
+        timer: 2500,
+        timerProgressBar: true
+      });
+
+    </script>
+
+  {% endfor %}
+
+{% endif %}
+
+
+</body>
+</html>

@@ -1,0 +1,232 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.0/css/all.min.css">
+
+    <title>SMS | Admin Login</title>
+
+</head>
+
+<body class="min-h-screen bg-slate-100">
+
+    <div class="flex min-h-screen items-center justify-center px-4 py-10">
+
+        <div
+            class="relative w-full max-w-md rounded-[2rem] border border-slate-200 bg-white p-8 shadow-[0_30px_60px_-35px_rgba(15,23,42,0.4)]">
+
+
+            <!-- Back -->
+            <a
+                href="{% url 'login' %}"
+                class="absolute -top-12 left-1/2 -translate-x-1/2 inline-flex items-center gap-2 rounded-xl bg-slate-700 px-4 py-2 text-sm font-semibold text-white shadow transition hover:bg-slate-800">
+
+                <i class="fa-solid fa-arrow-left"></i>
+
+                Back
+
+            </a>
+
+
+            <!-- Header -->
+            <div class="mb-8 pt-2 text-center">
+
+                <div
+                    class="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-red-100 text-red-600">
+
+                    <i class="fa-solid fa-user-shield text-2xl"></i>
+
+                </div>
+
+                <h1 class="text-3xl font-semibold text-slate-900">
+                    Admin Login
+                </h1>
+
+                <p class="mt-2 text-sm text-slate-500">
+                    Sign in to access the Admin Dashboard.
+                </p>
+
+            </div>
+
+
+            <!-- Form -->
+            <form method="POST" class="space-y-5">
+
+                {% csrf_token %}
+
+
+                <!-- Username -->
+                <label class="block">
+
+                    <span
+                        class="mb-2 block text-sm font-medium text-slate-700">
+
+                        Username
+
+                    </span>
+
+                    <div class="relative">
+
+                        <i
+                            class="fa-solid fa-user absolute left-4 top-1/2 -translate-y-1/2 text-slate-400">
+                        </i>
+
+                        <input
+                            type="text"
+                            name="username"
+                            placeholder="Enter admin username"
+                            required
+                            class="w-full rounded-2xl border border-slate-200 bg-slate-50 py-3 pl-11 pr-4 text-slate-900 outline-none transition focus:border-red-500 focus:ring-2 focus:ring-red-100">
+
+                    </div>
+
+                </label>
+
+
+                <!-- Password -->
+                <label class="block">
+
+                    <span
+                        class="mb-2 block text-sm font-medium text-slate-700">
+
+                        Password
+
+                    </span>
+
+                    <div class="relative">
+
+                        <i
+                            class="fa-solid fa-lock absolute left-4 top-1/2 -translate-y-1/2 text-slate-400">
+                        </i>
+
+                        <input
+                            type="password"
+                            id="adminPassword"
+                            name="password"
+                            placeholder="Enter your password"
+                            required
+                            class="w-full rounded-2xl border border-slate-200 bg-slate-50 py-3 pl-11 pr-12 text-slate-900 outline-none transition focus:border-red-500 focus:ring-2 focus:ring-red-100">
+
+
+                        <!-- Password Toggle -->
+                        <button
+                            type="button"
+                            onclick="toggleAdminPassword()"
+                            class="absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 transition hover:text-red-600">
+
+                            <i
+                                id="adminEyeIcon"
+                                class="fa-solid fa-eye">
+                            </i>
+
+                        </button>
+
+                    </div>
+
+                </label>
+
+
+                <!-- Login -->
+                <button
+                    type="submit"
+                    class="w-full rounded-2xl bg-red-600 px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-red-500/20 transition hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2">
+
+                    <i class="fa-solid fa-right-to-bracket mr-2"></i>
+
+                    Admin Login
+
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+    <!-- JavaScript -->
+    <script>
+
+        function toggleAdminPassword() {
+
+            const password =
+                document.getElementById("adminPassword");
+
+            const icon =
+                document.getElementById("adminEyeIcon");
+
+
+            if (password.type === "password") {
+
+                password.type = "text";
+
+                icon.classList.remove("fa-eye");
+                icon.classList.add("fa-eye-slash");
+
+            }
+
+            else {
+
+                password.type = "password";
+
+                icon.classList.remove("fa-eye-slash");
+                icon.classList.add("fa-eye");
+
+            }
+
+        }
+
+    </script>
+
+
+    <!-- Django Messages -->
+    {% if messages %}
+
+        {% for message in messages %}
+
+            <script>
+
+                Swal.fire({
+
+                    toast: true,
+
+                    position: "top-end",
+
+                    title: "{{ message.tags|title }}",
+
+                    text: "{{ message }}",
+
+                    icon: "{{ message.tags }}",
+
+                    timer: 2500,
+
+                    timerProgressBar: true,
+
+                    showConfirmButton: false
+
+                });
+
+            </script>
+
+        {% endfor %}
+
+    {% endif %}
+
+</body>
+
+</html>

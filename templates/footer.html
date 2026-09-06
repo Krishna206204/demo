@@ -1,0 +1,201 @@
+<footer class="w-full bg-slate-950 text-slate-300">
+
+    <!-- Footer Content -->
+    <div class="mx-auto grid w-full max-w-7xl grid-cols-1 gap-10 px-5 py-12
+                sm:px-8
+                md:grid-cols-3 md:gap-8 md:px-12
+                lg:gap-12 lg:px-20
+                xl:px-28">
+
+        <!-- School Information - LEFT -->
+        <div class="min-w-0 text-center md:text-left">
+
+            <h2 class="text-2xl font-extrabold text-white">
+                Jhime Malika
+            </h2>
+
+            <p class="mt-1 font-semibold text-amber-400">
+                Secondary School
+            </p>
+
+            <p class="mx-auto mt-5 max-w-sm leading-7 text-slate-400 md:mx-0">
+                We are committed to providing quality education and
+                developing responsible, confident, and successful students.
+            </p>
+
+            <div class="mt-6 flex justify-center gap-3 md:justify-start">
+
+                <a
+                    href="#"
+                    aria-label="Facebook"
+                    class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-slate-800 transition duration-200 hover:bg-amber-400 hover:text-slate-950"
+                >
+                    <i class="fa-brands fa-facebook-f"></i>
+                </a>
+
+                <a
+                    href="#"
+                    aria-label="Instagram"
+                    class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-slate-800 transition duration-200 hover:bg-amber-400 hover:text-slate-950"
+                >
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+
+                <a
+                    href="#"
+                    aria-label="YouTube"
+                    class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-slate-800 transition duration-200 hover:bg-amber-400 hover:text-slate-950"
+                >
+                    <i class="fa-brands fa-youtube"></i>
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- Quick Links - CENTER -->
+        <div class="min-w-0 text-center">
+
+            <h3 class="mb-6 text-lg font-bold text-white">
+                Quick Links
+            </h3>
+
+            <ul class="mx-auto w-fit space-y-4 text-center">
+
+                <li>
+                    <a
+                        href="{% url 'home' %}"
+                        class="transition duration-200 hover:text-amber-400"
+                    >
+                        Home
+                    </a>
+                </li>
+
+                <li>
+                    <a
+                        href="{% url 'about' %}"
+                        class="transition duration-200 hover:text-amber-400"
+                    >
+                        About Us
+                    </a>
+                </li>
+
+                <li>
+                    <a
+                        href="{% url 'contact' %}"
+                        class="transition duration-200 hover:text-amber-400"
+                    >
+                        Contact Us
+                    </a>
+                </li>
+
+                <li>
+                    <a
+                        href="{% url 'login' %}"
+                        class="transition duration-200 hover:text-amber-400"
+                    >
+                        Login
+                    </a>
+                </li>
+
+            </ul>
+
+        </div>
+
+
+        <!-- Contact Us - RIGHT -->
+        <div class="min-w-0 text-center md:text-right">
+
+            <h3 class="mb-6 text-lg font-bold text-white">
+                Contact Us
+            </h3>
+
+            <!-- Contact Information -->
+            <ul class="mx-auto w-fit max-w-full space-y-5 text-left md:ml-auto md:mr-0">
+
+                <!-- Address -->
+                <li class="flex items-start gap-3">
+
+                    <i class="fa-solid fa-location-dot mt-1 w-5 shrink-0 text-amber-400"></i>
+
+                    <span class="leading-6 text-slate-300">
+                        Jhime Malika, Nepal
+                    </span>
+
+                </li>
+
+
+                <!-- Phone -->
+                <li class="flex items-start gap-3">
+
+                    <i class="fa-solid fa-phone mt-1 w-5 shrink-0 text-amber-400"></i>
+
+                    <a
+                        href="tel:+9779800000000"
+                        class="leading-6 text-slate-300 transition hover:text-amber-400"
+                    >
+                        +977 9800000000
+                    </a>
+
+                </li>
+
+
+                <!-- Email -->
+                <li class="flex items-start gap-3">
+
+                    <i class="fa-solid fa-envelope mt-1 w-5 shrink-0 text-amber-400"></i>
+
+                    <a
+                        href="mailto:info@school.com"
+                        class="break-all leading-6 text-slate-300 transition hover:text-amber-400"
+                    >
+                        info@school.com
+                    </a>
+
+                </li>
+
+
+                <!-- Office Hours -->
+                <li class="flex items-start gap-3">
+
+                    <i class="fa-solid fa-clock mt-1 w-5 shrink-0 text-amber-400"></i>
+
+                    <span class="leading-6 text-slate-300">
+                        Sunday–Friday: 10:00 AM–4:00 PM
+                    </span>
+
+                </li>
+
+            </ul>
+
+        </div>
+
+    </div>
+
+
+    <!-- Footer Bottom -->
+    <div class="border-t border-slate-800">
+
+        <div class="mx-auto flex w-full max-w-7xl flex-col items-center
+                    justify-between gap-3 px-5 py-5 text-center text-sm
+                    sm:px-8
+                    md:flex-row md:px-12 md:text-left
+                    lg:px-20
+                    xl:px-28">
+
+            <p class="text-slate-500">
+                © {% now "Y" %} Jhime Malika Secondary School.
+                All rights reserved.
+            </p>
+
+            <p class="text-slate-500">
+                Designed and developed with
+                <i class="fa-solid fa-heart text-amber-400"></i>
+            </p>
+
+        </div>
+
+    </div>
+
+</footer>

@@ -1,11 +1,401 @@
 {% extends "dashbase.html" %}
 
 {% block title %}
-Home
-{% endblock title %}
+    Home | Jhime Malika Secondary School
+{% endblock %}
 
 {% block content %}
 
+<!-- ================= HERO SECTION ================= -->
+<section class="w-full bg-gradient-to-br from-slate-950 via-slate-900 to-blue-950">
+
+    <div class="flex min-h-[600px] w-full items-center px-5 py-16 sm:px-8 md:px-12 lg:px-20 xl:px-28">
+
+        <div class="w-full max-w-4xl">
+
+            <p class="mb-5 text-xs font-bold uppercase tracking-[0.25em] text-amber-400 sm:text-sm sm:tracking-[0.3em]">
+                Welcome to Jhime Malika Secondary School
+            </p>
+
+            <h1 class="text-4xl font-extrabold leading-tight text-white sm:text-5xl md:text-6xl lg:text-7xl">
+                Inspiring Minds.
+                <span class="block text-amber-400">
+                    Building Futures.
+                </span>
+            </h1>
+
+            <p class="mt-6 max-w-2xl text-base leading-7 text-slate-300 sm:text-lg sm:leading-8">
+                We provide quality education in a safe, supportive,
+                and inspiring environment where every student can
+                discover their potential.
+            </p>
+
+            <div class="mt-8 flex flex-col gap-4 sm:flex-row">
+
+                <a
+                    href="{% url 'about' %}"
+                    class="inline-flex items-center justify-center rounded-lg bg-amber-400 px-7 py-3 font-bold text-slate-950 shadow-lg transition hover:bg-amber-300"
+                >
+                    Discover More
+                    <i class="fa-solid fa-arrow-right ml-2"></i>
+                </a>
+
+                <a
+                    href="{% url 'contact' %}"
+                    class="inline-flex items-center justify-center rounded-lg border border-white px-7 py-3 font-bold text-white transition hover:bg-white hover:text-slate-950"
+                >
+                    Contact Us
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
 
 
-{% endblock content %} 
+<!-- ================= STATISTICS SECTION ================= -->
+{% comment %} <section class="w-full bg-slate-900">
+
+    <div class="grid w-full grid-cols-2 md:grid-cols-4">
+
+        <div class="border-b border-r border-slate-700 px-4 py-8 text-center md:border-b-0">
+            <i class="fa-solid fa-user-graduate mb-3 text-2xl text-amber-400 sm:text-3xl"></i>
+
+            <h3 class="text-2xl font-extrabold text-white sm:text-3xl">
+                500+
+            </h3>
+
+            <p class="mt-1 text-xs text-slate-300 sm:text-sm">
+                Students
+            </p>
+        </div>
+
+        <div class="border-b border-slate-700 px-4 py-8 text-center md:border-b-0 md:border-r">
+            <i class="fa-solid fa-chalkboard-user mb-3 text-2xl text-amber-400 sm:text-3xl"></i>
+
+            <h3 class="text-2xl font-extrabold text-white sm:text-3xl">
+                40+
+            </h3>
+
+            <p class="mt-1 text-xs text-slate-300 sm:text-sm">
+                Teachers
+            </p>
+        </div>
+
+        <div class="border-r border-slate-700 px-4 py-8 text-center">
+            <i class="fa-solid fa-award mb-3 text-2xl text-amber-400 sm:text-3xl"></i>
+
+            <h3 class="text-2xl font-extrabold text-white sm:text-3xl">
+                25+
+            </h3>
+
+            <p class="mt-1 text-xs text-slate-300 sm:text-sm">
+                Years of Excellence
+            </p>
+        </div>
+
+        <div class="px-4 py-8 text-center">
+            <i class="fa-solid fa-building-columns mb-3 text-2xl text-amber-400 sm:text-3xl"></i>
+
+            <h3 class="text-2xl font-extrabold text-white sm:text-3xl">
+                100%
+            </h3>
+
+            <p class="mt-1 text-xs text-slate-300 sm:text-sm">
+                Commitment
+            </p>
+        </div>
+
+    </div>
+
+</section> {% endcomment %}
+
+
+<!-- ================= ABOUT SECTION ================= -->
+<section class="w-full bg-white py-16 sm:py-20">
+
+    <div class="w-full px-5 sm:px-8 md:px-12 lg:px-20 xl:px-28">
+
+        <div class="mx-auto max-w-4xl text-center">
+
+            <p class="mb-3 text-sm font-bold uppercase tracking-widest text-amber-500">
+                About Our School
+            </p>
+
+            <h2 class="text-3xl font-extrabold leading-tight text-slate-900 sm:text-4xl lg:text-5xl">
+                A Place Where Every Student Can Shine
+            </h2>
+
+            <p class="mx-auto mt-6 max-w-3xl text-base leading-7 text-slate-600 sm:text-lg sm:leading-8">
+                Jhime Malika Secondary School is committed to providing
+                meaningful learning experiences that develop academic,
+                social, and personal skills.
+            </p>
+
+        </div>
+
+        <div class="mt-12 grid gap-6 md:grid-cols-3">
+
+            <!-- Quality Education -->
+            <div class="rounded-2xl border border-slate-200 bg-slate-50 p-6 text-center shadow-sm transition hover:-translate-y-1 hover:shadow-lg sm:p-8">
+
+                <div class="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-amber-100 text-2xl text-amber-600">
+                    <i class="fa-solid fa-book-open"></i>
+                </div>
+
+                <h3 class="mt-5 text-xl font-bold text-slate-900">
+                    Quality Education
+                </h3>
+
+                <p class="mt-3 leading-7 text-slate-600">
+                    Modern teaching methods and effective learning
+                    experiences for every student.
+                </p>
+
+            </div>
+
+            <!-- Experienced Teachers -->
+            <div class="rounded-2xl border border-slate-200 bg-slate-50 p-6 text-center shadow-sm transition hover:-translate-y-1 hover:shadow-lg sm:p-8">
+
+                <div class="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-amber-100 text-2xl text-amber-600">
+                    <i class="fa-solid fa-chalkboard-user"></i>
+                </div>
+
+                <h3 class="mt-5 text-xl font-bold text-slate-900">
+                    Experienced Teachers
+                </h3>
+
+                <p class="mt-3 leading-7 text-slate-600">
+                    Dedicated teachers who guide and support students
+                    throughout their learning journey.
+                </p>
+
+            </div>
+
+            <!-- Caring Community -->
+            <div class="rounded-2xl border border-slate-200 bg-slate-50 p-6 text-center shadow-sm transition hover:-translate-y-1 hover:shadow-lg sm:p-8">
+
+                <div class="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-amber-100 text-2xl text-amber-600">
+                    <i class="fa-solid fa-users"></i>
+                </div>
+
+                <h3 class="mt-5 text-xl font-bold text-slate-900">
+                    Caring Community
+                </h3>
+
+                <p class="mt-3 leading-7 text-slate-600">
+                    A safe and supportive environment where students
+                    can grow with confidence.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= PROGRAMS SECTION ================= -->
+{% comment %} <section class="w-full bg-slate-100 py-16 sm:py-20">
+
+    <div class="w-full px-5 sm:px-8 md:px-12 lg:px-20 xl:px-28">
+
+        <div class="mx-auto mb-12 max-w-3xl text-center">
+
+            <p class="mb-3 text-sm font-bold uppercase tracking-widest text-amber-500">
+                Our Programs
+            </p>
+
+            <h2 class="text-3xl font-extrabold text-slate-900 sm:text-4xl lg:text-5xl">
+                Learning for Every Stage
+            </h2>
+
+            <p class="mt-4 leading-7 text-slate-600">
+                We offer a balanced academic program designed to help
+                students succeed in every stage of their education.
+            </p>
+
+        </div>
+
+        <div class="grid gap-6 md:grid-cols-3 lg:gap-8">
+
+            <!-- Primary Level -->
+            <div class="rounded-2xl bg-white p-6 shadow-md transition hover:-translate-y-2 hover:shadow-xl sm:p-8">
+
+                <div class="mb-6 flex h-14 w-14 items-center justify-center rounded-xl bg-blue-100 text-2xl text-blue-600">
+                    <i class="fa-solid fa-child"></i>
+                </div>
+
+                <h3 class="text-2xl font-bold text-slate-900">
+                    Primary Level
+                </h3>
+
+                <p class="mt-4 leading-7 text-slate-600">
+                    Building strong foundations through creative and
+                    engaging learning activities.
+                </p>
+
+            </div>
+
+            <!-- Secondary Level -->
+            <div class="rounded-2xl bg-white p-6 shadow-md transition hover:-translate-y-2 hover:shadow-xl sm:p-8">
+
+                <div class="mb-6 flex h-14 w-14 items-center justify-center rounded-xl bg-green-100 text-2xl text-green-600">
+                    <i class="fa-solid fa-book"></i>
+                </div>
+
+                <h3 class="text-2xl font-bold text-slate-900">
+                    Secondary Level
+                </h3>
+
+                <p class="mt-4 leading-7 text-slate-600">
+                    Developing knowledge, confidence, and critical
+                    thinking skills.
+                </p>
+
+            </div>
+
+            <!-- Higher Secondary Level -->
+            <div class="rounded-2xl bg-white p-6 shadow-md transition hover:-translate-y-2 hover:shadow-xl sm:p-8">
+
+                <div class="mb-6 flex h-14 w-14 items-center justify-center rounded-xl bg-purple-100 text-2xl text-purple-600">
+                    <i class="fa-solid fa-graduation-cap"></i>
+                </div>
+
+                <h3 class="text-2xl font-bold text-slate-900">
+                    Higher Secondary
+                </h3>
+
+                <p class="mt-4 leading-7 text-slate-600">
+                    Preparing students for higher education and future
+                    professional opportunities.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section> {% endcomment %}
+
+
+<!-- ================= WHY CHOOSE US ================= -->
+<section class="w-full bg-white py-16 sm:py-20">
+
+    <div class="w-full px-5 sm:px-8 md:px-12 lg:px-20 xl:px-28">
+
+        <div class="grid gap-10 lg:grid-cols-2 lg:gap-16">
+
+            <!-- Text -->
+            <div class="flex flex-col justify-center">
+
+                <p class="mb-3 text-sm font-bold uppercase tracking-widest text-amber-500">
+                    Why Choose Us
+                </p>
+
+                <h2 class="text-3xl font-extrabold leading-tight text-slate-900 sm:text-4xl lg:text-5xl">
+                    Education Beyond the Classroom
+                </h2>
+
+                <p class="mt-6 leading-8 text-slate-600">
+                    Our school focuses on academic excellence, character
+                    development, creativity, discipline, and practical
+                    learning experiences.
+                </p>
+
+            </div>
+
+            <!-- Features -->
+            <div class="grid gap-5 sm:grid-cols-2">
+
+                <div class="rounded-xl border border-slate-200 p-6 transition hover:border-amber-400 hover:shadow-lg">
+                    <i class="fa-solid fa-lightbulb text-3xl text-amber-500"></i>
+
+                    <h3 class="mt-4 text-xl font-bold text-slate-900">
+                        Creative Learning
+                    </h3>
+
+                    <p class="mt-2 text-slate-600">
+                        Encouraging curiosity and new ideas.
+                    </p>
+                </div>
+
+                <div class="rounded-xl border border-slate-200 p-6 transition hover:border-amber-400 hover:shadow-lg">
+                    <i class="fa-solid fa-heart text-3xl text-amber-500"></i>
+
+                    <h3 class="mt-4 text-xl font-bold text-slate-900">
+                        Caring Environment
+                    </h3>
+
+                    <p class="mt-2 text-slate-600">
+                        Supporting every student's growth.
+                    </p>
+                </div>
+
+                <div class="rounded-xl border border-slate-200 p-6 transition hover:border-amber-400 hover:shadow-lg">
+                    <i class="fa-solid fa-people-group text-3xl text-amber-500"></i>
+
+                    <h3 class="mt-4 text-xl font-bold text-slate-900">
+                        Strong Community
+                    </h3>
+
+                    <p class="mt-2 text-slate-600">
+                        Building cooperation and respect.
+                    </p>
+                </div>
+
+                <div class="rounded-xl border border-slate-200 p-6 transition hover:border-amber-400 hover:shadow-lg">
+                    <i class="fa-solid fa-trophy text-3xl text-amber-500"></i>
+
+                    <h3 class="mt-4 text-xl font-bold text-slate-900">
+                        Student Success
+                    </h3>
+
+                    <p class="mt-2 text-slate-600">
+                        Helping students achieve their goals.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= CALL TO ACTION ================= -->
+<section class="w-full bg-white-400 py-14 sm:py-16">
+
+    <div class="flex w-full flex-col items-center justify-between gap-6 px-5 text-center sm:px-8 md:px-12 lg:flex-row lg:px-20 lg:text-left xl:px-28">
+
+        <div>
+            <h2 class="text-2xl font-extrabold text-slate-950 sm:text-3xl">
+                Give Your Child the Best Education
+            </h2>
+
+            <p class="mt-3 text-slate-800">
+                Join our school community and build a brighter future.
+            </p>
+        </div>
+
+        <a
+            href="{% url 'contact' %}"
+            class="inline-flex items-center rounded-lg bg-slate-900 px-7 py-3 font-bold text-white transition hover:bg-slate-800"
+        >
+            Contact Us
+            <i class="fa-solid fa-arrow-right ml-2"></i>
+        </a>
+
+    </div>
+
+</section>
+
+{% endblock %}

@@ -25,7 +25,8 @@ SECRET_KEY = 'django-insecure-*mb!-vne$zuna&4_e0#oo(n*%l1z^)8%bli^24ay(ho0l@x115
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["Krishna206204.pythonanywhere.com","*"]
+# ALLOWED_HOSTS = ["Krishna206204.pythonanywhere.com","*"]
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -125,5 +126,33 @@ AUTH_USER_MODEL="accounts.User"
 # https://docs.djangoproject.com/en/6.0/howto/static-files/
 
 STATIC_URL = 'static/'
+STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 LOGIN_URL="/"
+
+
+
+JAZZMIN_SETTINGS = {
+
+    # Browser tab title
+    "site_title": "SAMS Admin",
+
+    # Brand name
+    "site_brand": "Jhime Malika",
+
+    # Welcome message
+    "welcome_sign": "Welcome to SAMS Administration",
+
+    # Footer copyright
+    "copyright": "Jhime",
+
+
+    "usermenu_links": [
+        {
+            "name": "Admin Login",
+            "url": "admin-login",
+            "icon": "fas fa-sign-in-alt",
+            "new_window":False,
+        },
+    ],
+}
